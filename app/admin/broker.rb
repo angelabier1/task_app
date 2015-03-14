@@ -1,4 +1,5 @@
 ActiveAdmin.register Broker do
+  permit_params :name, :broker_email
 
 
   # See permitted parameters documentation:
