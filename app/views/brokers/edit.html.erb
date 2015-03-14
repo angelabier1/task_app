@@ -1,6 +1,5 @@
-<h1>Editing broker</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @broker %> |
-<%= link_to 'Back', brokers_path %>
+<%- model_class = Broker -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Broker %></h1>
+</div>
+<%= render :partial => 'form' %>
