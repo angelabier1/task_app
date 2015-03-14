@@ -29,6 +29,7 @@ class AgentApplicationsController < ApplicationController
   # POST /agent_applications.json
   def create
     @agent_application = AgentApplication.new(agent_application_params)
+    @agent_application.user = current_user
 
     respond_to do |format|
       if @agent_application.save
