@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @agent_application.user %>
+</p>
+
+<p>
+  <strong>License number:</strong>
+  <%= @agent_application.license_number %>
+</p>
+
+<p>
+  <strong>License expiration:</strong>
+  <%= @agent_application.license_expiration %>
+</p>
+
+<%= link_to 'Edit', edit_agent_application_path(@agent_application) %> |
+<%= link_to 'Back', agent_applications_path %>

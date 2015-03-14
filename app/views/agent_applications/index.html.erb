@@ -1,0 +1,29 @@
+<h1>Listing agent_applications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>License number</th>
+      <th>License expiration</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agent_applications.each do |agent_application| %>
+      <tr>
+        <td><%= agent_application.user %></td>
+        <td><%= agent_application.license_number %></td>
+        <td><%= agent_application.license_expiration %></td>
+        <td><%= link_to 'Show', agent_application %></td>
+        <td><%= link_to 'Edit', edit_agent_application_path(agent_application) %></td>
+        <td><%= link_to 'Destroy', agent_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Agent application', new_agent_application_path %>

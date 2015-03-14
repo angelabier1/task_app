@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :agent_applications
+
   resources :brokers
 
   devise_for :admin_users, ActiveAdmin::Devise.config
