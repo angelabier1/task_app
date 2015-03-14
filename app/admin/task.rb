@@ -1,4 +1,5 @@
 ActiveAdmin.register Task do
+  permit_params :due_date, :due_time
 
 
   # See permitted parameters documentation:
