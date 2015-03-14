@@ -1,5 +1,6 @@
-<h1>New agent_application</h1>
+<%- model_class = AgentApplication -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => AgentApplication %></h1>
+</div>
+<%= render :partial => 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', agent_applications_path %>

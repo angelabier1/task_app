@@ -1,13 +1,22 @@
-<%= simple_form_for(@agent_application) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.association :user %>
-    <%= f.input :license_number %>
-    <%= f.input :license_expiration %>
+<%= form_for @agent_application, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :license_number, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :license_number, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :license_expiration, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.date_select :license_expiration, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  agent_applications_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

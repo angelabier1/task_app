@@ -1,29 +1,38 @@
-<h1>Listing agent_applications</h1>
-
-<table>
+<%- model_class = AgentApplication -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => AgentApplication %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>User</th>
-      <th>License number</th>
-      <th>License expiration</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:license_number) %></th>
+      <th><%= model_class.human_attribute_name(:license_expiration) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @agent_applications.each do |agent_application| %>
       <tr>
-        <td><%= agent_application.user %></td>
+        <td><%= agent_application.id %></td>
         <td><%= agent_application.license_number %></td>
         <td><%= agent_application.license_expiration %></td>
-        <td><%= link_to 'Show', agent_application %></td>
-        <td><%= link_to 'Edit', edit_agent_application_path(agent_application) %></td>
-        <td><%= link_to 'Destroy', agent_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l agent_application.created_at, format: :long %></td>
+        <td>
+          <%= link_to agent_application_path(agent_application), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to agent_application_path(agent_application), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Agent application', new_agent_application_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_agent_application_path,
+            :class => 'btn btn-primary' %>

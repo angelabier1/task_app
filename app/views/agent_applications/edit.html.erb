@@ -1,6 +1,5 @@
-<h1>Editing agent_application</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @agent_application %> |
-<%= link_to 'Back', agent_applications_path %>
+<%- model_class = AgentApplication -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => AgentApplication %></h1>
+</div>
+<%= render :partial => 'form' %>
